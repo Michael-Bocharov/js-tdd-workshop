@@ -15,5 +15,6 @@ Given a list of employees, return specified number maximum numbers of employees 
 ###### Test cases:
  1. extract one email with highest position from list when list contains one item
  2. extract one email with highest position when list contains two item
- 3. extract two emails when three items
- 4. extract two email of employes with highest position when list contains items with same position
+ 3. extract one email with highest position when list contains three item
+ 4. extract two emails when three items
+ 5. extract two email of employes with highest position when list contains items with same position

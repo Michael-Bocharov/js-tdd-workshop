@@ -5,19 +5,24 @@ class Company {
     getEmailByHighestPosition(employeeList, limit) {
         const resultEmails = [];
         let employee = employeeList[0];
-        if (employeeList.length > 1) {
-            if (employeeList[1].position > employee.position) {
-                employee = employeeList[1];
+        let i = 1;
+        if (limit === 1) {
+            while (employeeList.length > i) {
+                if (employeeList[i].position > employee.position) {
+                    employee = employeeList[i];
+                }
+                i += 1;
             }
+            resultEmails.push(employee.email);
         }
-        resultEmails.push(employee.email);
         return resultEmails;
     }
 }
 
 const Position = {
     junior: 1,
-    middle: 2
+    middle: 2,
+    senior: 3
 };
 
 module.exports = {
