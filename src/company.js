@@ -1,13 +1,10 @@
 
 class Company {
-    constructor() {
-    }
-    getEmailByHighestPosition(employees, limit) {
+    emailsByHighestPosition(employees, limit) {
         const employeeList = [];
         for (let i = 0; i < limit; i += 1) {
             employeeList.push(employees[i]);
         }
-        // employeeList.reverse();
         let i = 1;
         while (employees.length > i) {
             const employee = employeeList.sort((a, b) => (b.position - a.position)).pop();
@@ -22,18 +19,19 @@ class Company {
     }
 }
 
-const Position = {
+const POSITION = {
     junior: 1,
     middle: 2,
     senior: 3,
     teamLead: 4,
     projectManager: 5,
+    architect: 6,
     cto: 20
 
 };
 
 module.exports = {
     Company,
-    Position
+    POSITION
 };
 
