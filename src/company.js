@@ -2,18 +2,31 @@
 class Company {
     constructor() {
     }
-    getEmailByHighestPosition(employeeList, limit) {
-        const resultEmails = [];
-        let employee = employeeList[0];
+    getEmailByHighestPosition(employees, limit) {
+        let resultEmails = [];
+        let employee = employees[0];
         let i = 1;
         if (limit === 1) {
-            while (employeeList.length > i) {
-                if (employeeList[i].position > employee.position) {
-                    employee = employeeList[i];
+            while (employees.length > i) {
+                if (employees[i].position > employee.position) {
+                    employee = employees[i];
                 }
                 i += 1;
             }
             resultEmails.push(employee.email);
+        } else {
+            const employeeList = [];
+            employeeList[0] = employees[0];
+            employeeList[1] = employees[1];
+            while (employees.length > i) {
+                if (employees[i].position > employeeList[0].position) {
+                    employeeList[0] = employees[i];
+                } else if (employees[i].position > employeeList[1].position) {
+                    employeeList[1] = employees[i];
+                }
+                i += 1;
+            }
+            resultEmails = employeeList.map(item => item.email);
         }
         return resultEmails;
     }
