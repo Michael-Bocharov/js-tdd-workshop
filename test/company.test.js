@@ -42,12 +42,7 @@ describe('Company', () => {
     });
 
     it('extract one email when list contains one item', () => {
-        const employees = [
-            {
-                position: POSITION.junior,
-                email: 'junior@company.com'
-            }
-        ];
+        const employees = [junior()];
         const emails = company.emailsByHighestPosition(employees, 1);
 
         expect(emails).to.have.members(['junior@company.com']);
